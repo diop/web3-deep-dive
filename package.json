@@ -1,0 +1,31 @@
+{
+  "name": "web3-deep-dive",
+  "version": "1.0.0",
+  "description": "A Web3.js Deep Dive",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Web3JS",
+    "Ethereum",
+    "Blockchain",
+    "Express",
+    "NodeJS"
+  ],
+  "author": "Fodé Diop",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-session": "^2.0.0-beta.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "web3": "^1.0.0-beta.23"
+  }
+}
