@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link
+    rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="response">No response</h1>
+      <div class="">
+        <button class="btn btn-primary" onclick="contactServer()">Contact the server</button>
+      </div>
+      <script>
+        function contactServer() {
+          var xhttp = new XMLHttpRequest()
+          xhttp.onreadystatechange = function() {
+            var accounts = JSON.parse(this.responseText)
+            var fode = accounts[0]
+            if (this.readyState == 4 && this.status == 200) {
+             document.getElementById("response").innerHTML = fode;
+            }
+          };
+          xhttp.open("GET", "ajax-request", true)
+          xhttp.send()
+        }
+      </script>
+    </div>
+  </body>
+</html>
