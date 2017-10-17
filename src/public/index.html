@@ -9,12 +9,12 @@
   </head>
   <body>
     <div class="container">
-      <h1 id="response">No response</h1>
+      <h1 id="response">Fetch Ethereum Blockchain Data</h1>
       <div class="">
-        <button class="btn btn-primary" onclick="contactServer()">Contact the server</button>
+        <button class="btn btn-primary" onclick="fetchData()">Fetch Block Data</button>
       </div>
       <script>
-        function contactServer() {
+        function fetchData() {
           var xhttp = new XMLHttpRequest()
           xhttp.onreadystatechange = function() {
             var accounts = JSON.parse(this.responseText)
