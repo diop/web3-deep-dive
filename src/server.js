@@ -19,7 +19,7 @@ app.get('/', (request, response) => {
 
 app.get('/ajax-request', (request, response) => {
   web3.eth.getAccounts((error, addresses) => {
-    if (!error) {response.send(JSON.stringify(addresses))}
+    if (!error) {response.json(addresses)}
   })
 })
 

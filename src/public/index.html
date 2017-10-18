@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 id="response">Fetch Ethereum Blockchain Data</h1>
+      <h1 id="response">Ethereum Blockchain Data</h1>
       <div class="">
         <button class="btn btn-primary" onclick="fetchData()">Fetch Block Data</button>
       </div>
@@ -18,9 +18,8 @@
           var xhttp = new XMLHttpRequest()
           xhttp.onreadystatechange = function() {
             var accounts = JSON.parse(this.responseText)
-            var fode = accounts[0]
             if (this.readyState == 4 && this.status == 200) {
-             document.getElementById("response").innerHTML = fode;
+             document.getElementById("response").innerHTML = accounts;
             }
           };
           xhttp.open("GET", "ajax-request", true)
