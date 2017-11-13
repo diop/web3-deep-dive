@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link
+    rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Fetch Ethereum Blockchain Data</h1>
+
+      <% for(var i=0; i<functionNames.length; i++) { %>
+        <div class="">
+          <button
+            class="btn btn-primary"
+            onclick="handleClick('<%= functionNames[i] %>')">
+            web3.<%= functionNames[i] %>
+          </button>
+          <input type="text" id="<%= functionNames[i] %>_params" value="[]">
+          <span id="<%= functionNames[i] %>"></span>
+        </div>
+      <% } %>
+
+      <script>
+        function handleClick(functionName) {
+          var paramString = document.getElementById(functionName + '_params').value
+          fetchData(functionName, paramString)
+        }
+
+        function fetchData(functionName, parameters) {
+
+          console.log('fetchData called with arguments:')
+          console.log('    functionName:', functionName)
+          console.log('    parameters:', parameters)
+
+          var xhttp = new XMLHttpRequest()
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById(functionName).innerHTML = this.responseText;
+            }
+          }
+
+          xhttp.open("POST", "ajax-request", true)
+          xhttp.setRequestHeader('Content-Type', 'application/json')
+
+          var options = JSON.stringify({
+            functionName: functionName,
+            parameters: parameters
+          })
+
+          xhttp.send(options)
+        }
+      </script>
+    </div>
+  </body>
+</html>
